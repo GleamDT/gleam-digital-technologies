@@ -1,0 +1,6 @@
+# Robots.txt for Gleam Digital Technologies
+
+User-agent: *
+Allow: /
+
+Sitemap: https://digitaltechnologies.dev/sitemap.xml
