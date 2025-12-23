@@ -26,10 +26,10 @@ export default function Footer() {
             </p>
             <p className=" text-slate-400">
               <a
-                href="mailto:hello@digitaltechnologies.dev"
+                href="mailto:info@gleamdigitaltechnologies.com"
                 className="hover:text-blue-300 transition-colors"
               >
-                hello@digitaltechnologies.dev
+                info@gleamdigitaltechnologies.com
               </a>
             </p>
           </div>
