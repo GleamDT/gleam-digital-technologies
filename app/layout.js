@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 
@@ -53,6 +54,7 @@ export default function RootLayout({ children }) {
         {/* min-h-screen pt-16 (or similar) so content isn't hidden behind fixed header */}
         <main>{children}</main>
         <Footer />
+        <Toaster />
       </body>
     </html>
   );

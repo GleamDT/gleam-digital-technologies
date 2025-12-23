@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 
 export default function ContactForm() {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,8 +19,7 @@ export default function ContactForm() {
     setStatus("sending");
 
     try {
-      // TODO: Replace YOUR_FORM_ID with your actual Formspree ID
-      const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,11 +30,29 @@ export default function ContactForm() {
       if (response.ok) {
         setStatus("success");
         setFormData({ name: "", email: "", company: "", message: "" });
+        toast({
+          title: "Message sent successfully",
+          description:
+            "Thanks for reaching out. We’ll get back to you shortly.",
+        });
       } else {
         setStatus("error");
+        toast({
+          variant: "destructive",
+          title: "Something went wrong",
+          description:
+            "Your message could not be sent. Please try again or email us directly.",
+        });
       }
     } catch (error) {
       setStatus("error");
+      // alert("Email Not sent");
+      toast({
+        variant: "destructive",
+        title: "Something went wrong",
+        description:
+          "Your message could not be sent. Please try again or email us directly.",
+      });
     }
   };
 
@@ -103,10 +122,10 @@ export default function ContactForm() {
                   <div>
                     <h3 className="font-semibold text-slate-100 mb-1">Email</h3>
                     <a
-                      href="mailto:hello@digitaltechnologies.dev"
+                      href="mailto:info@gleamdigitaltechnologies.com"
                       className="text-sm md:text-base text-blue-300 hover:text-blue-200"
                     >
-                      hello@digitaltechnologies.dev
+                      info@gleamdigitaltechnologies.com
                     </a>
                     <p className="text-xs text-slate-400 mt-1">
                       Best for project briefs, RFPs, and general questions.
@@ -199,10 +218,10 @@ export default function ContactForm() {
                     Something went wrong. Please try again or email us directly
                     at{" "}
                     <a
-                      href="mailto:hello@digitaltechnologies.dev"
+                      href="mailto:info@gleamdigitaltechnologies.com"
                       className="underline"
                     >
-                      hello@digitaltechnologies.dev
+                      info@gleamdigitaltechnologies.com
                     </a>
                     .
                   </div>
@@ -294,12 +313,9 @@ export default function ContactForm() {
                   </button>
                 </form>
 
-                <p className="mt-4 text-center text-[11px] text-slate-500">
-                  {/* Don&apos;t forget to replace{" "}
-                  <span className="font-mono">YOUR_FORM_ID</span> in the code
-                  with your Formspree form ID to enable submissions. */}
+                {/* <p className="mt-4 text-center text-[11px] text-slate-500">
                   To do: Add sendgrid or formspree integration.
-                </p>
+                </p> */}
               </div>
             </div>
           </div>
