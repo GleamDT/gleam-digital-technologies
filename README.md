@@ -1,196 +1,192 @@
 Gleam Digital Technologies
 
-Gleam Digital Technologies is a modern, high performance web platform built with Next.js 14, React, and Tailwind CSS.
+# Technical Documentation
+
+## Project Overview
+
+This repository contains the source code for the **Gleam Digital Technologies** website. The project is a production-ready web application built using **Next.js**, **React**, and **Tailwind CSS**, designed to serve as a modern, responsive marketing and informational website for the client.
+
 The website showcases professional technology services including Web Development, Mobile Apps, Data Science, Cybersecurity, and DevOps, presented through smooth animations, responsive layouts, and SEO optimized pages.
 
-This repository contains the full source code for the official Gleam Digital Technologies website.
+The application follows standard Next.js best practices and is structured to allow easy maintenance, scalability, and future feature additions.
 
-Features
-Modern Frontend Stack
+---
 
-Next.js 14 (App Router)
+## Technology Stack
 
-React 18
+- **Framework:** Next.js
+- **Language:** JavaScript / TypeScript (as configured in the project)
+- **Styling:** CSS / Tailwind CSS (based on project configuration)
+- **Package Manager:** npm
+- **Version Control:** GitHub
+- **Hosting / Deployment:** Vercel
+- **Email Service:** Resend
+- **Domain & DNS Management:** GoDaddy
 
-Tailwind CSS
+---
 
-Lucide React Icons
+## Project Structure
 
-Keen Slider for hero and testimonials
+The project uses the **Next.js App Router** and follows a modern, production-ready structure.
 
-Fully responsive on all devices
-
-Fully Designed Pages
-
-Home
-
-Services
-
-About
-
-Blog (with individual blog pages)
-
-Contact (with Formspree integration)
-
-Performance and Architecture
-
-Optimized Next/Image usage
-
-Clean separation of server and client components
-
-Autoplay sliders with smooth transitions
-
-Utility first design system using Tailwind
-
-SEO and Social Sharing
-
-Per page metadata
-
-Open Graph metadata
-
-Twitter Card metadata
-
-Automatic title templating (Page Title | Gleam Digital Technologies)
-
-Favicon and manifest support
-
-Tech Stack
-Technology Purpose
-Next.js 14 Framework, routing, rendering
-React 18 UI components
-Tailwind CSS Styling and layout
-Keen Slider Carousels
-Lucide React Icons
-Formspree Contact form
-Next/Image Optimized images
-JavaScript ES6 Application logic
-Project Structure
+```
 /
-├── app/
-│ ├── layout.js
-│ ├── page.js
-│ ├── about/
-│ ├── blog/
-│ │ ├── page.js
-│ │ └── [slug]/page.js
-│ ├── contact/
-│ └── services/
-│
-├── components/
-│ └── ui/
-│ ├── Header.js
-│ ├── Footer.js
-│ ├── Hero.js
-│ ├── Testimonials.js
-│ └── other UI components
-│
-├── content/
-│ └── posts.js
-│
-├── public/
-│ ├── logo.svg
-│ ├── favicon.ico
-│ ├── site.webmanifest
-│ └── og-image.png
-│
-├── styles/
-│ └── globals.css
-│
-└── next.config.js
+├── app/                     # App Router pages and layouts
+├── components/              # Reusable UI components
+├── lib/                     # Shared utilities and helper functions
+│   └── utils.js
+├── public/                  # Static assets and SEO files
+│   ├── favicon-16.png
+│   ├── favicon-32.png
+│   ├── icon-180.png
+│   ├── icon-192.png
+│   ├── icon-512.png
+│   ├── og-image.png
+│   ├── robots.txt
+│   └── sitemap.xml
+├── components.json          # UI/component configuration
+├── next.config.js           # Next.js configuration
+├── tailwind.config.js       # Tailwind CSS configuration
+├── postcss.config.js        # PostCSS configuration
+├── eslint.config.mjs        # ESLint configuration
+├── jsconfig.json            # Path aliases and JS config
+├── package.json             # Dependencies and scripts
+├── package-lock.json        # Dependency lock file
+├── README.md                # Project documentation
+└── .gitignore               # Git ignore rules
+```
 
-Installation and Setup
+This structure confirms the use of the **App Router (`app/`)**, Tailwind CSS for styling, and a component-driven architecture.
 
-1. Clone the repository
-   git clone https://github.com/yourusername/gleam-digital-technologies.git
-   cd gleam-digital-technologies
+---
 
-2. Install dependencies
-   npm install
+## Setup & Installation
 
-3. Run development server
-   npm run dev
+### Prerequisites
 
-Access the site at:
+- Node.js (LTS version recommended)
+- npm or yarn
 
-http://localhost:3000
+### Installation Steps
 
-4. Build for production
-   npm run build
-   npm start
+1. Clone the repository:
 
-Environment Variables
+```bash
+git clone <repository-url>
+```
 
-Create a .env file in the project root:
+2. Install dependencies:
 
-FORMSPREE_ID=your_form_id
+```bash
+npm install
+```
 
-Then update the Contact page fetch request to use it:
+3. Create an environment file:
 
-fetch(`https://formspree.io/f/${process.env.FORMSPREE_ID}`, ...)
+```bash
+cp .env.example .env.local
+```
 
-SEO and Metadata
+4. Start the development server:
 
-This project includes:
+```bash
+npm run dev
+```
 
-Global metadata in app/layout.js
+The application will be available at `http://localhost:3000`.
 
-Per page metadata in each route file
+---
 
-Open Graph and Twitter metadata
+## Available Scripts
 
-Automatic title templates
+- `npm run dev` – Runs the app in development mode
+- `npm run build` – Builds the app for production
+- `npm run start` – Starts the production server
+- `npm run lint` – Runs linting checks (if configured)
 
-Default fallback OG image
+---
 
-This ensures every page is optimized for search engines and social share previews.
+## Environment Variables
 
-Responsive UI
+Environment variables are stored in `.env.local` and should **never** be committed to version control.
 
-The entire interface is built with a mobile first approach and adapts smoothly across:
+Example:
 
-Mobile phones
+```
+NEXT_PUBLIC_SITE_URL=
+RESEND_API_KEY=
+```
 
-Tablets
+**Descriptions:**
 
-Laptops and desktops
+- `NEXT_PUBLIC_SITE_URL` – Base URL of the deployed website
+- `RESEND_API_KEY` – API key used for sending emails via Resend
 
-Ultra wide screens
+---
 
-Sliders automatically adjust items per view based on screen width.
+## Features & Functionality
 
-Media Optimization
+- Responsive marketing website
+- Reusable component-based UI
+- SEO-friendly pages
+- Contact or inquiry functionality (email-based)
+- Optimized for performance and accessibility
 
-Local assets use the Next/Image component
+---
 
-Remote images (slider, testimonials) use img tags because they come from external sources
+## Deployment
 
-SVG logo ensures pixel perfect rendering at any size
+The website is deployed using **Vercel** and connected to a custom domain managed via **GoDaddy**.
 
-Roadmap
+Typical deployment flow:
 
-Possible future enhancements:
+1. Code is pushed to the `main` branch on GitHub
+2. Vercel automatically builds and deploys the project
+3. Environment variables are configured in the Vercel dashboard
+4. The custom domain is connected and managed through GoDaddy DNS settings
 
-CMS powered blog (Sanity or Contentful)
+---
 
-Light and dark themes
+## Maintenance & Updates
 
-Analytics integration
+- Keep dependencies up to date using `npm update`
+- Test changes locally before deploying
+- Use feature branches for new development
+- Regularly review environment variables and API usage limits
 
-Backend for contact form
+---
 
-Admin panel for managing content
+## Known Notes / Limitations
 
-If needed, these can be scaffolded easily.
+- Content updates may require code changes unless a CMS is added
+- Email functionality depends on external service availability
 
-License
+---
 
+## Ownership & Access
+
+All source code, deployments, domains, and third-party services associated with this project are intended to be fully owned by the client upon handover. Detailed instructions for account setup, ownership transfer, and access revocation are provided in a separate handover document. Separate documentation covers:
+
+- Account setup
+- Ownership transfer
+- Access revocation
+
+---
+
+## License
+
+**Project:** Gleam Digital Technologies Website
 This project is private and owned by Gleam Digital Technologies.
 Do not distribute or modify without permission.
 
+## Developer Information
+
+- **Developer:** Paul Nnaemeka
+- **Contact:** paulnnaemeka302@gmail.com
+- **Date Delivered:** 01/17/2026
+
 Contact
 
-For inquiries or collaborations:
+## For inquiries or collaborations:
 
-Email: hello@digitaltechnologies.dev
-
-Website: https://your-domain.com
+- **Contact:** paulnnaemeka302@gmail.com
